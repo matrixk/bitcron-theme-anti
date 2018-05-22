@@ -1,0 +1,17 @@
+extends base.jade
+
+block title
+    title= request.get_offset_path(1)+'年 - ' + site.title
+
+block content
+    if request.path.strip('/')=='archive'
+        +response.redirect('/categories')
+        
+    h1=request.get_offset_path(1)+'年'
+
+    year_start_date = '%s-1-1'%request.get_offset_path(1)
+    year_end_date = '%s-1-1'%(request.get_offset_path(1).int+1)
+    #postlist
+        year_posts = d.get_data(types='post', limit=400, sort='desc', date_start=year_start_date, date_end=year_end_date)
+        for post in year_posts: .article_list
+            a(href=post.url)= post.title

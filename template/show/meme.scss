@@ -1,0 +1,133 @@
+body {
+    max-width: 900px;
+    margin: 2em auto;
+    background: #ccdfcb;
+    line-height: 2em;
+}
+
+main {
+    background: none;
+    padding: 2em 3em;
+    color: #414141;
+}
+
+a.back_to_home {
+    float: right;
+    color: #999999;
+    margin: 2em 0px;
+    z-index: 10;
+    position: relative;
+}
+
+span.md_line {
+    background: #FF6A5C;
+    color: #fff;
+}
+
+.memes {
+    position: relative;
+}
+
+img.flowers {
+    max-height: 23em;
+    position: absolute;
+    z-index: -1;
+    left: -10em;
+    top: -6em;
+}
+
+.doc_comments {
+    margin-top: 30px;
+    padding: 35px 0 45px;
+    position: absolute;
+}
+
+.author {
+    color: #056571!important;
+}
+
+.doc_comments .comments .comment .author b {
+    color: #056571!important;
+}
+
+.content {
+    text-align: center;
+}
+
+
+
+.doc_comments .comments_block_title {
+    color: #000;
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.avatar {
+    display: none;
+}
+
+.doc_comments #new_comment_form textarea {
+    background-color: #fff!important;
+}
+
+.doc_comments .comments .comment .author b, .doc_comments .comments .comment .author small {
+    margin-left: 0 !important;
+}
+
+@media only screen and (max-width : 900px) {
+  body {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+  a.back_to_home {
+    margin: 2em 1em;
+  }
+ main {
+    padding: 2em 0;
+ }
+ img.flowers {
+    left: -5em;
+    top: -10em;
+ }
+ .doc_comments::before {
+    top: 3em;
+    left: -42em;
+ }
+  .content {
+    margin: auto 20px;
+  }
+  .doc_comments {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .doc_comments .comments .sub_comments {
+    padding-left: 0;
+    padding: 0;
+  }
+
+  ul.sub_comments {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+  .comment_content {
+    margin: 1em!important;
+  }
+  .author {
+    margin: 1em!important;
+  }
+  .doc_comments .comments .comment .author b {
+    color: #056571 !important;
+  }
+  .doc_comments .comments .comment {
+    padding: 0 !important;
+    background-color: #fff;
+    border: 1px solid rgba(150, 150, 150, 0.18)!important;
+    margin: 30px 0 0;
+    list-style: none;
+    border-radius: 5px;
+    word-break: break-word;
+  }
+}

@@ -1,0 +1,20 @@
+html
+    head
+    +h.headers
+    +load('font')
+    +h.load("/template/show/meme.scss")
+    block title
+      title= post.title + " - " + site.title
+        
+body
+    main
+        +font('hanazono')
+            .content= post.content
+            if account.is_admin
+                p.comments_admin.admin: a(href="https://us.bitcron.com/service/files_manager?site_id="+site.id+"#_comments/"+post.path.split('.')[-2]+".csv") [编辑评论]
+            else
+                +h.load("/template/show/meme_nadm.scss")
+    a(href='/').back_to_home= "返回「"+ site.title +"」"
+    .memes
+        img.flowers(src="/template/show/image/flowers.svg", alt="")
+        +post.comments_as_html()

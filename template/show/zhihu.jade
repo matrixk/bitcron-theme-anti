@@ -1,0 +1,132 @@
+html
+    head
+    +h.headers
+    +load('font')
+    +h.load("/template/show/zhihu.scss")
+    block title
+      title= post.title + " - " + site.title
+        
+    body
+      main
+        .AppHeader-inner
+          nav
+            .title
+              h1.QuesTitle= site.title
+            ul.AppHeader-nav
+              a.AppHeader-navItem(href="/", target="_blank")= '首页'
+              a.AppHeader-navItem(href="/archive", target="_blank")= '发现'
+              a.AppHeader-navItem(href="/category", target="_blank")= '话题'
+      
+        .QuestionPage
+          .QuestionHeader
+            .QuestionHeader-main
+              .QuestionHeader-topics
+                if post.metadata.zhihu_tags
+                  for zhihu_tags in post.metadata.zhihu_tags
+                    a.Tag.QuestionTopic(href="/tag/{{zhihu_tags}}")=zhihu_tags
+                elif post.tags and not post.metadata.zhihu_tags
+                  for tag in post.tags
+                    a.Tag.QuestionTopic(href="/tag/{{tag}}")=tag
+                h2.QuestionHeader-title= post.title
+                if post.metadata.zhihu_quesdes
+                  span.QuestionHeader-detail=post.metadata.zhihu_quesdes
+              .QuestionHeader-main.QuestionHeader-footer-main
+                  span.QuestionHeader-Comment
+                    i.fa.fa-comment
+                    span.Button.Button--plain.Button--withIcon.Button--withLabel= "%s条评论" %(post.metadata.zhihu_quescomments or 0)
+                  span.Popover.ShareMenu
+                    i.fa.fa-paper-plane
+                    span.Button.Button--plain.Button--withIcon.Button--withLabel= "分享"
+                  span.Popover.ShareMenu
+                    i.fa.fa-star
+                    span.Button.Button--plain.Button--withIcon.Button--withLabel= "邀请回答"
+                  span.Popover.ShareMenu
+                    i.fa.fa-flag
+                    span.Button.Button--plain.Button--withIcon.Button--withLabel= "举报"
+                  span.Popover.ShareMenu
+                    span.Button.Button--plain.Button--withIcon.Button--withLabel= "..."
+          
+            .Question-mainColumn
+                .ContentItem
+                  .AuthorInfo
+                    if post.metadata.zhihu_icon
+                      img.UserLink.AuthorInfo-avatarWrapper(src="{{post.metadata.zhihu_icon}}", alt="{{zhihu_id}}")
+                    else
+                      img.UserLink.AuthorInfo-avatarWrapper(src="/template/show/zhihu_icon.png", alt="{{zhihu_id}}")
+                    span.AuthorInfo-content
+                      if post.metadata.zhihu_id
+                        span.UserLink.AuthorInfo-name=post.metadata.zhihu_id
+                      else
+                        span.UserLink.AuthorInfo-name='匿名用户'
+                      if post.metadata.zhihu_idinfo
+                        span.AuthorInfo-badgeText=post.metadata.zhihu_idinfo
+              
+                  .AnswerExtraInfo
+                    if post.metadata.zhihu_likesyou
+                      for zhihu_likesyou in post.metadata.zhihu_likesyou
+                        span.AnswerLike= zhihu_likesyou
+                      span.AnswerLike='&nbsp;等'
+                    
+                    if post.metadata.zhihu_likes
+                      span.AnswerLike= post.metadata.zhihu_likes
+                    else
+                      span.AnswerLike= '0'
+                      
+                    span.AnswerLike='人赞同了该回答'
+            
+                .AnswerMain= post.content
+              
+                .AnswerExtraFooter
+                  span.AnswerLike= '编辑于'
+                  if post.metadata.zhihu_date
+                    span.AnswerLike= post.metadata.zhihu_date
+                  else
+                    span.AnswerLike= post.date.format('%Y-%m-%d')
+              
+                .AnswerSticky
+                  .Kudos
+                    .KudosLike
+                      span.KudosItem= "▲"
+                      if post.metadata.zhihu_likes
+                        span.KudosItem=post.metadata.zhihu_likes
+                      else
+                        span.KudosItem="0"
+                    .KudosDislike
+                      span.KudosItem="▼"
+                  .AnswerStickyButtonBar
+                    span.QuesStickyButton
+                      i.fa.fa-comment
+                      span.sticky= "%s条评论" %(post.comments_count or 0)
+                    span.QuesStickyButton
+                      i.fa.fa-paper-plane
+                      span.sticky= "分享"
+                    span.QuesStickyButton
+                      i.fa.fa-star
+                      span.sticky= "邀请回答"
+                    span.QuesStickyButton
+                      i.fa.fa-flag
+                      span.sticky= "举报"
+                    span.QuesStickyButton
+                      span.sticky= "..."
+
+        .postpager
+            hr
+            if posts.pre_one
+                a.pre_post(href=posts.previous_one.url)= '新一篇：' +  posts.previous_one.title
+            else
+                span.pre_post="没有更新的啦！"
+            if posts.next_one
+                a.next_post(href=posts.next_one.url)= '旧一篇：' +  posts.next_one.title
+            else
+                span.next_post="没有更早的啦！"
+        +post.comments_as_html()
+
+        .footer
+          span= "这是一篇知乎体文章～并不是真的知乎页面喔！"
+          span.Backtosite= "模板改写："
+            a(href="https://matrixk.me/", target="_blank") 矩阵良
+          br
+          a(href="/", target="_blank") 「点我返回博客主页」
+          if post.metadata.zhihu_link
+            a(href="https://"+post.metadata.zhihu_link, target="_blank") 「点我传送到知乎」
+

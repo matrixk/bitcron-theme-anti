@@ -1,0 +1,30 @@
+html
+    head
+    +h.headers
+    +load('font')
+    +h.load("/template/show/forum.scss")
+	if post.metadata.cancel_indent
+        +h.load("/template/special_format.scss")
+    block title
+      title= post.title + " - " + site.title
+        
+body
+  .head_forum
+      span.head_info="Written by "
+        a.head_info(href="/")="矩阵良"
+	  span.head_info="|"
+      span.head_info="你现在看到的是一个论坛体的页面"
+  main
+    .forum_content= post.content
+    .postpager
+        hr
+        if posts.pre_one
+            a.pre_post(href=posts.previous_one.url)= '新一篇：' +  posts.previous_one.title
+        else
+            span.pre_post="没有更新的啦！"
+        if posts.next_one
+            a.next_post(href=posts.next_one.url)= '旧一篇：' +  posts.next_one.title
+        else
+            span.next_post="没有更早的啦！"
+    
+    +post.comments_as_html()
