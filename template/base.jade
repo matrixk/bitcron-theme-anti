@@ -4,6 +4,11 @@ html
         script(src='http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js')
         +h.headers
         +h.load('/template/style.scss', 'font')
+        script(type='text/javascript').
+            function isHidden(el) {
+            var vDiv = el.parentNode.nextElementSibling
+            vDiv.style.display = (vDiv.style.display == 'none')?'block':'none';//反转
+            }
 
         block title
             if request.path.startswith('/tag/') and posts.tags
@@ -19,10 +24,7 @@ html
         header
             block header
                 .bg
-                    if site.background_image
-                        img.bgimg(src=site.background_image, alt=site.title)
-                    else
-                        img.bgimg(src="/template/image/Header.jpg", alt=site.title)
+                    img.bgimg(src="/template/image/header.png")
 
                 .nav
                     a.home(href='/')= "首页"
@@ -34,10 +36,7 @@ html
             
         main
             .site_description
-                if site.configs.sub_title
-                    span= site.configs.sub_title
-                else
-                    span= "世界的尽头，爱就在那里。"
+                span= "続、そして终。非、そして反。"
 
             .content_main
                 block content
