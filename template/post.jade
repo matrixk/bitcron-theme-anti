@@ -26,7 +26,7 @@ else
                 .post_info
                     time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y/%m/%d')
                     if post.category
-                        a.tag(href=post.category.url)= post.category.title
+                        a.cat(href=post.category.url)= post.category.title
                     if post.tags
                         for tag in post.tags
                             span.seperate /

@@ -664,7 +664,15 @@ h1.category_title {
     color: #000;
     transition: all 0.5s;
     &:hover {
-        color: #ff0000;
+        color: #EE7600;
+    }
+}
+
+.cat {
+    color: #000;
+    transition: all 0.5s;
+    &:hover {
+        color: #009ACD;
     }
 }
 
