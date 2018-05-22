@@ -954,6 +954,9 @@ p.md_compiled.md_paragraph_html {
 
 /* Responsive ---------------------------------*/
 @media (max-width: 850px) {
+    body {
+        font: 1.1em/1.8em Cambria, "Microsoft Yahei", sans-serif;
+    }
     img.bgimg {
         width: 811px;
         text-align: center;
