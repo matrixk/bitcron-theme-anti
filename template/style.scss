@@ -198,7 +198,7 @@ sup {
         padding: 0!important;
         text-decoration: none;
         &:hover {
-            color: #333;
+            color: #000;
             text-decoration: none;
         }
         &:after {
@@ -629,7 +629,8 @@ h1.category_title {
         }
     }
     .toc {
-        padding: 0 0 0 2em;
+        padding: 0 0 0 1em;
+        margin: 0 0 1em 1em;
         background: #fff;
         z-index: 999;
         display: inline-block;
@@ -796,7 +797,7 @@ p.md_compiled.md_paragraph_html {
                 }
             }
             .comment_submit_button {
-                background: #333!important;
+                background: #000!important;
                 @include border-radius(0);
                 &:hover {
                     cursor: pointer;
@@ -843,7 +844,7 @@ p.md_compiled.md_paragraph_html {
                         transition: all 0.8s;
                     }
                     &:hover::before {
-                        color: #333;
+                        color: #000;
                     }
                 }
                 .author-date {
