@@ -329,21 +329,18 @@ header {
 
 .bg {
     position: absolute;
-    width: 100%;
-    vertical-align: middle;
-    overflow-x: hidden;
     z-index: -1;
-    top: 0em;
-    img {
-        display: block;
-        width: 1500px;
-        max-width: none;
-        filter: grayscale(100%);
-        -webkit-filter: grayscale(100%);
-        -moz-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-        -o-filter: grayscale(100%);
-    }
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
 }
 
 
@@ -956,10 +953,6 @@ p.md_compiled.md_paragraph_html {
 @media (max-width: 850px) {
     body {
         font: 1.1em/1.8em Cambria, "Microsoft Yahei", sans-serif;
-    }
-    img.bgimg {
-        width: 811px;
-        text-align: center;
     }
     .site_header {
         text-align: center;

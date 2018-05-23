@@ -23,8 +23,10 @@ html
     body
         header
             block header
-                .bg
-                    img.bgimg(src='{{site.background_image}}')
+                if site.background_image
+                    .bg(style='background-image: url({{site.background_image}})')
+                else
+                    .bg(style='background-image: url(/template/image/Header.jpg)')
 
                 .nav
                     a.home(href='/')= "首页"
@@ -36,7 +38,10 @@ html
             
         main
             .site_description
-                span= site.configs.sub_title
+                if site.background_image
+                    span= site.configs.sub_title
+                else
+                    span= "続、そして终。非、そして反。"
 
             .content_main
                 block content
