@@ -24,7 +24,7 @@ html
         header
             block header
                 .bg
-                    img.bgimg(src="/template/image/header.png")
+                    img.bgimg(src=site.background_image)
 
                 .nav
                     a.home(href='/')= "首页"
@@ -36,7 +36,7 @@ html
             
         main
             .site_description
-                span= "続、そして终。非、そして反。"
+                span= site.configs.sub_title
 
             .content_main
                 block content
