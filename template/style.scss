@@ -10,7 +10,9 @@ Copyright: © 2018 Mytrix
 /* Basic ---------------------------------*/
 body {
     margin: 0 auto;
-    font: 1.1em/2em Cambria, "Microsoft Yahei", sans-serif;
+    font-size: 1.1em;
+    line-height: 1.8em;
+    font-family: source-han-serif-sc, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
     font-weight: 100;
     overflow-wrap: break-word;
     text-align: justify;
@@ -28,6 +30,15 @@ span {
     text-indent: 0em;
     }
 }
+
+.anti {
+    font-weight: initial;
+    color: #fff;
+    background: #000;
+    padding: 0 0.2em;
+    margin: 0 0.2em;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -55,12 +66,14 @@ pre {
         margin: 0;
         overflow-wrap: normal;
         color: inherit;
+        border: none;
     }
 }
 code {
     padding: 2px 6px;
     overflow-wrap: break-word;
-    margin: 0 3px;
+    margin: 0 2px;
+    border: solid 1px;
     color: #555;
 }
 del {
@@ -79,10 +92,10 @@ blockquote {
     line-height: 1.8em;
     position: relative;
     &::before {
-        content: '“';
-        font-size: 3em;
+        content:url(/template/image/comma-before.svg);
+        font-size: 1em;
         text-align: center;
-        line-height: 1em;
+        padding-bottom: 1em;
         color: #fff;
         background: #000;
         float: left;
@@ -91,19 +104,24 @@ blockquote {
         left: 0em;
     }
     &::after {
-        content: '”';
-        font-size: 3em;
+        content:url(/template/image/comma-after.svg);
+        font-size: 1em;
         text-align: center;
-        line-height: 1em;
+        padding-top: 1em;
         color: #fff;
         background: #000;
         float: left;
         position: absolute;
         bottom: 0em;
         right: 0em;
+        vertical-align:bottom;
     }
 }
 
+iframe {
+    display: -webkit-box;
+    margin: 0 auto;
+}
 
 figure {
     padding: 0;
@@ -207,6 +225,9 @@ sup {
     }
 }
 
+.md_li {
+    list-style: square;
+}
 
 
 /*---------------------Nav-----*/
@@ -310,7 +331,8 @@ header {
     .site_title {
         text-align: center;
         font-size: 2em;
-        padding: 0.1em 0.5em;
+        letter-spacing: 0.1em;
+        padding: 0em 0.1em 0.1em 0.2em;
         margin: 0 auto 2em;
         color: #000;
         background: #fff;
@@ -333,7 +355,7 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     top: 0;
-    bottom: 0px;
+    bottom: 0;
     left: 0;
     right: 0;
     filter: grayscale(100%);
@@ -686,8 +708,8 @@ h1.category_title {
     vertical-align: middle;
     color: #fff;
     background: #000;
-    width: 1em;
-    height: 1em;
+    width: 1.1em;
+    height: 1.1em;
     display: inline-block;
     border-radius: 100%;
     margin-left: 1em;
@@ -703,8 +725,8 @@ h1.category_title {
     vertical-align: middle;
     color: #fff;
     background: #000;
-    width: 1em;
-    height: 1em;
+    width: 1.1em;
+    height: 1.1em;
     display: inline-block;
     border-radius: 100%;
     margin-right: 1em;
@@ -869,6 +891,7 @@ p.md_compiled.md_paragraph_html {
                 padding-left: 48px!important;
                 p {
                     text-indent:0 !important;
+                    word-wrap: break-word !important;
                 }
             }
         }
@@ -951,12 +974,26 @@ p.md_compiled.md_paragraph_html {
 
 /* Responsive ---------------------------------*/
 @media (max-width: 850px) {
-    body {
+/*    body {
         font: 1.1em/1.8em Cambria, "Microsoft Yahei", sans-serif;
+    }*/
+    blockquote {
+        &::before {
+            content:url(/template/image/comma-before-moblie.svg);
+        }
+        &::after {
+            content:url(/template/image/comma-after-moblie.svg);
+        }
+    }
+    .bg {
+    bottom: 0;
     }
     .site_header {
         text-align: center;
         padding: 5.5em 0;
+    }
+    .site_description {
+        padding: 1em;
     }
     .bitcron_nav_container ul.mixed_site_nav.site_nav.sm.sm-base li a {
         padding: 0 0.4em;
@@ -970,7 +1007,9 @@ p.md_compiled.md_paragraph_html {
     .content_main {
         margin: 3em 0;
     }
-
+    .articles {
+        margin: 5em 0;
+    }
     .labeltitle {
         margin: 3em 0 0 0;
     }
