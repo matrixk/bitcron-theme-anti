@@ -225,8 +225,10 @@ sup {
     }
 }
 
-.md_li {
-    list-style: square;
+ul {
+    .md_li {
+        list-style: square;
+    }
 }
 
 
@@ -318,7 +320,7 @@ sup {
 
 header {
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
     border-bottom: solid 2px #000;
     .with_font {
         text-align: center;
@@ -331,6 +333,7 @@ header {
     .site_title {
         text-align: center;
         font-size: 2em;
+        font-weight: bold;
         letter-spacing: 0.1em;
         padding: 0em 0.1em 0.1em 0.2em;
         margin: 0 auto 2em;
@@ -354,8 +357,8 @@ header {
     z-index: -1;
     background-repeat: no-repeat;
     background-position: center;
-    top: 0;
-    bottom: 0;
+    top: -74px;
+    bottom: -169px;
     left: 0;
     right: 0;
     filter: grayscale(100%);
@@ -426,6 +429,7 @@ a.post_title {
     padding: 0.5em;
     border-bottom: solid 1px #000;
     border-top: solid 1px #000;
+    vertical-align: middle;
     time {
         background: #000;
         color: #fff;
@@ -675,6 +679,10 @@ h1.category_title {
     }
 }
 
+.footnotes {
+    font-size: 0.8em;
+}
+
 .post_info {
     text-align: center;
 }
@@ -716,7 +724,8 @@ h1.category_title {
     height: 1.1em;
     display: inline-block;
     border-radius: 100%;
-    margin-left: 1em;
+    margin: 0.5em 0em 0.5em 0.5em;
+    vertical-align: middle;
     transition: all 0.5s;
     &:hover {
         color: #000;
@@ -733,7 +742,8 @@ h1.category_title {
     height: 1.1em;
     display: inline-block;
     border-radius: 100%;
-    margin-right: 1em;
+    margin: 0.5em 0.5em 0.5em 0em;
+    vertical-align: middle;
     transition: all 0.5s;
     &:hover {
         color: #000;
@@ -990,7 +1000,9 @@ p.md_compiled.md_paragraph_html {
         }
     }
     .bg {
-    bottom: 0;
+        bottom: 0;
+        top: -1em;
+        background-size: 1000px;
     }
     .site_header {
         text-align: center;
