@@ -320,7 +320,7 @@ ul {
 
 header {
     position: relative;
-    /*overflow: hidden;*/
+    overflow: hidden;
     border-bottom: solid 2px #000;
     .with_font {
         text-align: center;
@@ -357,8 +357,8 @@ header {
     z-index: -1;
     background-repeat: no-repeat;
     background-position: center;
-    top: -74px;
-    bottom: -169px;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     filter: grayscale(100%);
